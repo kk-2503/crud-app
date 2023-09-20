@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
+import { useRouter } from 'next/router';
+
 export function EmployeeForm() {
-	const [employee, setEmployee] = useState({
-		first_name: '',
-		last_name: '',
-		birthday: null
-	});
+	const router = useRouter();
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -38,6 +36,8 @@ export function EmployeeForm() {
 			.catch(err => {
 				console.error(err);
 			});
+
+		router.push('/');
 
 		// const responseData = await res.json();
 

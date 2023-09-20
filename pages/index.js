@@ -1,21 +1,21 @@
 import React from 'react';
+import Link from 'next/link';
 
-import { EmployeeForm } from '@/components/EmployeeForm';
+import { Layout } from '@/components/Layout';
 
 function homePage({ employees }) {
 	return (
-		<div>
-			<EmployeeForm />
-			<div>
-				{employees.map(empl => (
-					<div key={empl.id}>
+		<Layout>
+			{employees.map(empl => (
+				<Link href={`/employees/${empl.id}`} key={empl.id}>
+					<div className="border border-gray-200 shadow-md p-6">
 						<h1>{empl.first_name + ' ' + empl.last_name}</h1>
 						<p>{empl.birthday.slice(0, 10)}</p>
 						<p>{empl.age}</p>
 					</div>
-				))}
-			</div>
-		</div>
+				</Link>
+			))}
+		</Layout>
 	);
 }
 

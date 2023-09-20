@@ -1,7 +1,14 @@
 import React from 'react';
 
+import { EmployeeForm } from '@/components/EmployeeForm';
+import { Layout } from '@/components/Layout';
+
 function addEmployee() {
-	return <div>add a new employee</div>;
+	return (
+		<Layout>
+			<EmployeeForm />
+		</Layout>
+	);
 }
 
 export default addEmployee;
