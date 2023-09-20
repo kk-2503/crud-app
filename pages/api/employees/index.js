@@ -11,7 +11,6 @@ export default async function handler(req, res) {
 
 const getEmployees = async (req, res) => {
 	const [result] = await pool.query('SELECT * FROM employees');
-	console.log(result);
 	return res.status(200).json(result);
 };
 

@@ -6,8 +6,6 @@ function EmployeeView({ employee }) {
 	const router = useRouter();
 
 	const handleDelete = async id => {
-		console.log(id);
-
 		// DELETE
 		const res = await fetch('/api/employees/' + id, {
 			method: 'DELETE'
