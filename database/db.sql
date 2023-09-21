@@ -22,3 +22,14 @@ END;
 
 DELIMITER ;
 
+DELIMITER //
+
+CREATE TRIGGER calculate_age_on_update
+BEFORE UPDATE ON employees
+FOR EACH ROW
+BEGIN
+    SET NEW.age = TIMESTAMPDIFF(YEAR, NEW.birthday, CURDATE());
+END;
+//
+
+DELIMITER ;

@@ -10,8 +10,6 @@ function homePage({ employees }) {
 				<Link href={`/employees/${empl.id}`} key={empl.id}>
 					<div className="border border-gray-200 shadow-md p-6">
 						<h1>{empl.first_name + ' ' + empl.last_name}</h1>
-						<p>{empl.birthday.slice(0, 10)}</p>
-						<p>{empl.age}</p>
 					</div>
 				</Link>
 			))}
