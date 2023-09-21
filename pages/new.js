@@ -6,7 +6,9 @@ import { Layout } from '@/components/Layout';
 function addEmployee() {
 	return (
 		<Layout>
-			<EmployeeForm />
+			<div className="grid place-items-center">
+				<EmployeeForm />
+			</div>
 		</Layout>
 	);
 }
