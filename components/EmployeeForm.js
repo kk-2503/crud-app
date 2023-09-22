@@ -16,9 +16,15 @@ export function EmployeeForm() {
 		e.preventDefault();
 
 		if (!validateBirthday()) {
-			toast.error('ERROR: Please enter a valid birthday');
+			toast.error('ERROR: Please enter a valid birthday.');
 			return;
 		}
+
+		if (!validateName()) {
+			toast.error('ERROR: First name and last name should not include special characters.');
+			return;
+		}
+
 		const formattedBirthday = formatDate(employee.birthday);
 
 		if (router.query.id) {
@@ -45,9 +51,6 @@ export function EmployeeForm() {
 					console.error(err);
 				});
 		} else {
-			// const firstName = e.target.elements['first-name'].value;
-			// const lastName = e.target.elements['last-name'].value;
-			// const birthday = e.target.elements['birthday'].value;
 			const res = await fetch('/api/employees', {
 				method: 'POST',
 				headers: {
@@ -73,11 +76,6 @@ export function EmployeeForm() {
 		}
 
 		router.push('/');
-
-		// const responseData = await res.json();
-
-		// Handle and display the response data
-		// console.log('Response data:', responseData);
 	};
 
 	useEffect(() => {
@@ -102,6 +100,12 @@ export function EmployeeForm() {
 			getEmployee(router.query.id);
 		}
 	}, [router.query.id]);
+
+	const validateName = () => {
+		const regex = /^[a-zA-Z.]+$/;
+
+		return regex.test(employee.first_name) && regex.test(employee.last_name);
+	};
 
 	const validateBirthday = () => {
 		const birthdate = new Date(employee.birthday);
