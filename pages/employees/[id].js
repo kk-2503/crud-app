@@ -1,5 +1,8 @@
 import { useRouter } from 'next/router';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie } from '@fortawesome/free-solid-svg-icons';
+
 import { Layout } from '@/components/Layout';
 
 function EmployeeView({ employee }) {
@@ -43,10 +46,14 @@ function EmployeeView({ employee }) {
 
 	return (
 		<Layout>
-			<h1>{employee.first_name + ' ' + employee.last_name}</h1>
-			<p>{employee.birthday.slice(0, 10)}</p>
-			<p>{getAge()}</p>
-
+			<div className="flex grid-cols-2 p-6 justify-between text-center text-3xl my-5 max-w-sm w-90">
+				<div className="text-justify text-lg">
+					<h1>Name: {employee.first_name + ' ' + employee.last_name}</h1>
+					<p>Birthday: {employee.birthday.slice(0, 10)}</p>
+					<p>Age: {getAge()}</p>
+				</div>
+				<FontAwesomeIcon icon={faUserTie} size="2xl" />
+			</div>
 			<button
 				className="bg-red-500 hover:bg-red-700 rounded text-white px-3 py-2"
 				onClick={() => handleDelete(employee.id)}>

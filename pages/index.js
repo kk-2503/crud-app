@@ -97,10 +97,10 @@ function homePage() {
 							<Link href={`/employees/${empl.id}`}>
 								<h1 className="text-2xl">{empl.first_name + ' ' + empl.last_name}</h1>
 							</Link>
-
 							<button className="justify-center" onClick={() => handleDelete(empl.id)}>
 								<FontAwesomeIcon icon={faTrash} size="lg" />
 							</button>
+							import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 						</div>
 					))}
 				</div>
