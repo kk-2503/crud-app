@@ -1,8 +1,8 @@
-CREATE DATABASE employeesdb;
+CREATE DATABASE IF NOT EXISTS employeesdb;
 
 use employeesdb;
 
-CREATE TABLE employees (
+CREATE TABLE IF NOT EXISTS employees (
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE employees (
 
 DELIMITER //
 
-CREATE TRIGGER calculate_age_on_insert
+CREATE TRIGGER IF NOT EXISTS calculate_age_on_insert
 BEFORE INSERT ON employees
 FOR EACH ROW
 BEGIN
@@ -24,7 +24,7 @@ DELIMITER ;
 
 DELIMITER //
 
-CREATE TRIGGER calculate_age_on_update
+CREATE TRIGGER IF NOT EXISTS calculate_age_on_update
 BEFORE UPDATE ON employees
 FOR EACH ROW
 BEGIN
