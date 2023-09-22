@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Navbar() {
 	return (
-		<ul className="flex justify-between bg-green-200">
+		<ul className="flex justify-between bg-gray-200">
 			<li className="ml-5">
 				<Link href="/">
 					<h1 className="px-3 font-bold text-3xl mt-5">CRUD App</h1>
